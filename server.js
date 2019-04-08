@@ -43,18 +43,18 @@ class Application
             let res = JSON.parse(b);
             let ip = res.result;
 
-            console.log('Setting ' + host + '.' + domain + ' to ' + ip + '...');
+            console.log(`Setting ${program.hostname}.${this.config.domain} to ${ip}...`);
 
             request.get(url + '/records', (error, response, body) =>
                 {
                     let doc = JSON.parse(body);
 
-                    if (!doc.records.some(element => element.host === host))
+                    if (!doc.records.some(element => element.host === program.hostname))
                     {
                         //create hostname
                         request.post(url + '/records', {
                             json: {
-                                host: host,
+                                host: program.hostname,
                                 type: 'A',
                                 answer: ip,
                                 ttl: 300
@@ -75,11 +75,11 @@ class Application
                     {
                         //update hostname by id
 
-                        let id = doc.records.find(element => element.host === host).id;
+                        let id = doc.records.find(element => element.host === program.hostname).id;
 
                         request.put(url + '/records/' + id, {
                             json: {
-                                host: host,
+                                host: program.hostname,
                                 type: 'A',
                                 answer: ip,
                                 ttl: 300
