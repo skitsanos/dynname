@@ -27,7 +27,7 @@ class Application
         program
             .version(`${meta.version}`, '-v, --version')
             .usage('-hostname')
-            .option('-h, --hostname <hostname>', 'hostname')
+            .option('-host, --hostname <hostname>', 'hostname')
             .parse(process.argv);
 
         if (!program.hostname)
