@@ -38,7 +38,7 @@ class Application
 
         const url = 'https://' + this.config.username + ':' + this.config.token + '@api.name.com/v4/domains/' + this.config.domain;
 
-        request.get('http://api.skitsanos.com/getip', (e, r, b) =>
+        request.get('https://api.ipify.org/', (e, r, b) =>
         {
             let res = JSON.parse(b);
             let ip = res.result;
