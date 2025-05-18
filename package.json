@@ -3,7 +3,7 @@
   "description": "Dynamic DNS client for name.com",
   "version": "1.0.1",
   "dependencies": {
-    "commander": "^13.0.0",
+    "commander": "^14.0.0",
     "request": "^2.88.0"
   },
   "bin": {
